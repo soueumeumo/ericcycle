@@ -1,0 +1,12 @@
+
+services:
+  - type: web
+    name: os-system
+    env: python
+    plan: starter
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        sync: false

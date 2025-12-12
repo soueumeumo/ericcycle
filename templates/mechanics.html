@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Mecânicos</h2>
+<p><a href="{{ url_for('add_mechanic') }}">Adicionar mecânico</a></p>
+<ul>
+  {% for m in mechanics %}
+    <li>{{ m.name }}</li>
+  {% else %}
+    <li>Sem mecânicos cadastrados</li>
+  {% endfor %}
+</ul>
+{% endblock %}

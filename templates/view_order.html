@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Ordem #{{ order.id }}</h2>
+<p><strong>Data:</strong> {{ order.date.strftime('%Y-%m-%d') if order.date else '' }}</p>
+<p><strong>Cliente:</strong> {{ order.client_name }}</p>
+<p><strong>Modelo:</strong> {{ order.motorcycle_model }}</p>
+<p><strong>Placa:</strong> {{ order.plate }}</p>
+<p><strong>KM:</strong> {{ order.km }}</p>
+<p><strong>Ano:</strong> {{ order.year }}</p>
+<p><strong>Cor:</strong> {{ order.color }}</p>
+<p><strong>Mecânico:</strong> {{ order.mechanic.name if order.mechanic else '' }}</p>
+<p><strong>Serviços:</strong>
+  <ul>
+  {% for s in order.services %}
+    <li>{{ s.description }} ({{ s.code }})</li>
+  {% else %}
+    <li>Nenhum serviço</li>
+  {% endfor %}
+  </ul>
+</p>
+<p><strong>Códigos de erro:</strong> {{ order.error_codes }}</p>
+<p><strong>Observações:</strong><br>{{ order.obs }}</p>
+<p><a href="{{ url_for('orders') }}">Voltar</a></p>
+{% endblock %}

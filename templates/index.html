@@ -1,0 +1,7 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Bem-vindo!</h2>
+<p>Use o menu para cadastrar mecânicos, serviços e criar ordens de serviço.</p>
+<p><a href="{{ url_for('add_order') }}">Criar nova Ordem de Serviço</a></p>
+{% endblock %}

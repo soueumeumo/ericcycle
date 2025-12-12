@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Ordem de Serviço - Oficina</title>
+</head>
+<body>
+  <header>
+    <h1>Oficina - Sistema de Ordens de Serviço</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Início</a> |
+      <a href="{{ url_for('orders') }}">Ordens</a> |
+      <a href="{{ url_for('orders') }}?filter=all">Todas OS</a> |
+      <a href="{{ url_for('mechanics') }}">Mecânicos</a> |
+      <a href="{{ url_for('services') }}">Serviços</a>
+    </nav>
+    <hr>
+  </header>
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for category, msg in messages %}
+          <li class="flash {{ category }}">{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <hr>
+    <small>Gerado automaticamente - sistema básico</small>
+  </footer>
+</body>
+</html>

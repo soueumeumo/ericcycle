@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Criar Ordem de Serviço</h2>
+<form method="post">
+  <label>Modelo (ex: Harley-Davidson):<br><input name="motorcycle_model"></label><br><br>
+  <label>Nome do cliente:<br><input name="client_name"></label><br><br>
+  <label>Data:<br><input type="date" name="date" value="{{ ('' ) }}"></label><br><br>
+  <label>Placa:<br><input name="plate"></label><br><br>
+  <label>KM:<br><input name="km" type="number" min="0"></label><br><br>
+  <label>Ano:<br><input name="year"></label><br><br>
+  <label>Cor:<br><input name="color"></label><br><br>
+  <label>Códigos de erro:<br><input name="error_codes"></label><br><br>
+  <label>Observações:<br><textarea name="obs"></textarea></label><br><br>
+
+  <label>Mecânico:<br>
+  <select name="mechanic_id">
+    <option value="">-- selecione --</option>
+    {% for m in mechanics %}
+      <option value="{{ m.id }}">{{ m.name }}</option>
+    {% endfor %}
+  </select>
+  </label><br><br>
+
+  <fieldset>
+    <legend>Serviços a executar</legend>
+    {% for s in services %}
+      <label><input type="checkbox" name="services" value="{{ s.id }}"> {{ s.description }} ({{ s.code }})</label><br>
+    {% else %}
+      Nenhum serviço cadastrado
+    {% endfor %}
+  </fieldset>
+  <br>
+  <button type="submit">Criar Ordem</button>
+</form>
+{% endblock %}

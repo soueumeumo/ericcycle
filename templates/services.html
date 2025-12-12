@@ -1,0 +1,14 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Serviços</h2>
+<p><a href="{{ url_for('add_service') }}">Adicionar serviço</a></p>
+<table>
+  <tr><th>Código</th><th>Descrição</th></tr>
+  {% for s in services %}
+  <tr><td>{{ s.code }}</td><td>{{ s.description }}</td></tr>
+  {% else %}
+  <tr><td colspan="2">Nenhum serviço cadastrado</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}
