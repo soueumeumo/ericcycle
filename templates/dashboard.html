@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Ordens de Serviço</h2>
+
+{% for os in ordens %}
+<div class="card">
+  <h3>{{ os.cliente }} - {{ os.modelo }}</h3>
+  <p><strong>Data:</strong> {{ os.data }}</p>
+  <p><strong>Placa:</strong> {{ os.placa }} | <strong>KM:</strong> {{ os.km }} | <strong>Ano:</strong> {{ os.ano }}</p>
+  <p><strong>Cor:</strong> {{ os.cor }} | <strong>Combustível:</strong> {{ os.combustivel }}</p>
+  <p><strong>Mecânico:</strong> {{ os.mecanico }}</p>
+  <p><strong>Serviços a Executar:</strong><br>{{ os.servicos_executar }}</p>
+  <p><strong>Código de Erro:</strong> {{ os.codigo_erro }}</p>
+  <p><strong>Observações:</strong><br>{{ os.obs }}</p>
+
+  {% for foto in os.fotos %}
+    <img src="{{ foto }}" width="120">
+  {% endfor %}
+</div>
+{% else %}
+<p>Nenhuma OS cadastrada</p>
+{% endfor %}
+
+{% endblock %}

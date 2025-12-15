@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Nova Ordem de Serviço</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<label>Data</label><br>
+<input type="date" name="data"><br><br>
+
+<label>Cliente</label><br>
+<input name="cliente"><br><br>
+
+<label>Modelo</label><br>
+<input name="modelo"><br><br>
+
+<label>Placa</label><br>
+<input name="placa"><br><br>
+
+<label>KM</label><br>
+<input name="km" type="number"><br><br>
+
+<label>Ano</label><br>
+<input name="ano" type="number"><br><br>
+
+<label>Cor</label><br>
+<input name="cor"><br><br>
+
+<label>Mecânico</label><br>
+<input name="mecanico"><br><br>
+
+<label>Serviços a Executar</label><br>
+<textarea name="servicos_executar"></textarea><br><br>
+
+<label>Código de Erro</label><br>
+<input name="codigo_erro"><br><br>
+
+<label>Combustível</label><br>
+<select name="combustivel">
+  <option value="">Selecione</option>
+  <option>Gasolina</option>
+  <option>Etanol</option>
+  <option>Diesel</option>
+  <option>Flex</option>
+  <option>Elétrico</option>
+</select><br><br>
+
+<label>Observações</label><br>
+<textarea name="obs"></textarea><br><br>
+
+<label>Fotos</label><br>
+<input type="file" name="fotos" multiple><br><br>
+
+<button type="submit">Salvar OS</button>
+</form>
+
+{% endblock %}
